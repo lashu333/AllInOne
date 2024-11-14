@@ -803,8 +803,8 @@ struct FlowingShape: Shape {
       
         for x in stride(from: 0, through: width, by: 5) {
             let relativeX = x / width
-            let sine = sin(relativeX * 4 * .pi + phase)
-            let y = midHeight + sine * 20 * (1)
+            let sine = sin(relativeX * 7 * .pi * 0.3 + phase)
+            let y = midHeight + sine/0.7 * 20 * (1)
             
             path.addLine(to: CGPoint(x: x, y: y))
         }
@@ -839,8 +839,8 @@ struct PlayButton: View {
                     .foregroundColor(.white)
             }
         }
-        .scaleEffect(isPlaying ? 1.1 : 1.0)
-        .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isPlaying)
+        .scaleEffect(isPlaying ? 1.06 : 1.0)
+        .animation(.spring(response: 0.13, dampingFraction: 0.7), value: isPlaying)
     }
 }
 
@@ -961,7 +961,7 @@ struct DayCell: View {
             }
             
             Text("\(calendar.component(.day, from: date))")
-                .font(.system(size: 14))
+                .font(.system(size: 17))
                 .foregroundColor(isCompleted ? .white : .primary)
         }
         .frame(height: 40)
